@@ -2,8 +2,10 @@
 
 <template>
 	<ui-nav-menu>
-		<a href="/" rel="home">Home</a>
-		<a href="/templates">Templates</a>
-		<a href="/settings">Settings</a>
+		<router-link to="/" rel="home">Home</router-link>
+		<router-link to="/dashboard">Dashboard</router-link>
+		<router-link to="/settings">Settings</router-link>
 	</ui-nav-menu>
+	
+	<router-view />
 </template>
