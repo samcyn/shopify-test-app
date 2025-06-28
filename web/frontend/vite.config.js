@@ -63,6 +63,7 @@ export default defineConfig({
   )],
 	resolve: {
 		preserveSymlinks: true,
+		dedupe: ['vue'],
 	},
 	server: {
 		host: 'localhost',
