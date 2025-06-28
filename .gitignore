@@ -7,3 +7,5 @@
 .shopify/*
 .shopify.lock
 .DS_store
+
+credentials.yml.enc
