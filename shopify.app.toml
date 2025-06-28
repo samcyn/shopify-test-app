@@ -1,15 +1,17 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "39ba2fdb035b93ac9076f8de4687a07d"
-name = "testing-another"
-handle = "testing-another"
-application_url = "https://adjust-labs-guarantee-silent.trycloudflare.com"
+client_id = "436eec537e8f59d6140673d74c659fae"
+name = "template-ruby"
+handle = "template-ruby-1"
+application_url = "https://localhost:52671"
 embedded = true
 
 [build]
-automatically_update_urls_on_dev = true
-dev_store_url = "quickstart-db189fd9.myshopify.com"
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -17,33 +19,11 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://adjust-labs-guarantee-silent.trycloudflare.com/auth/callback",
-  "https://adjust-labs-guarantee-silent.trycloudflare.com/auth/shopify/callback",
-  "https://adjust-labs-guarantee-silent.trycloudflare.com/api/auth/callback"
+  "https://localhost:52671/auth/callback",
+  "https://localhost:52671/auth/shopify/callback",
+  "https://localhost:52671/api/auth/callback"
 ]
-
-[webhooks]
-api_version = "2025-01"
-
-  [[webhooks.subscriptions]]
-  uri = "/api/webhooks/customers_data_request"
-  compliance_topics = [ "customers/data_request" ]
-
-  [[webhooks.subscriptions]]
-  uri = "/api/webhooks/customers_redact"
-  compliance_topics = [ "customers/redact" ]
-
-  [[webhooks.subscriptions]]
-  uri = "/api/webhooks/shop_redact"
-  compliance_topics = [ "shop/redact" ]
-
-  [[webhooks.subscriptions]]
-  topics = [ "app/scopes_update" ]
-  uri = "/api/webhooks/app_scopes_update"
-
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/api/webhooks/app_uninstalled"
 
 [pos]
 embedded = false
+web_directories = [ "web/frontend", "web" ]

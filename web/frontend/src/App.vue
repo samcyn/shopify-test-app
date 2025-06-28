@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import HelloWorldVue from './components/HelloWorld.vue'
+</script>
 
 <template>
 	<ui-nav-menu>
@@ -6,4 +8,5 @@
 		<a href="/templates">Templates</a>
 		<a href="/settings">Settings</a>
 	</ui-nav-menu>
+	<HelloWorldVue msg="Hello World"/>
 </template>

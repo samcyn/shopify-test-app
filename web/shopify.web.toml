@@ -1,3 +1,4 @@
+name = "backend"
 roles = ["backend"]
 webhooks_path = "api/webhooks/app_uninstalled"
 
