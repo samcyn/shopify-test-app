@@ -3,7 +3,7 @@
 client_id = "436eec537e8f59d6140673d74c659fae"
 name = "template-ruby"
 handle = "template-ruby-1"
-application_url = "https://localhost:60803"
+application_url = "https://localhost:52671"
 embedded = true
 
 [build]
@@ -19,9 +19,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://localhost:60803/auth/callback",
-  "https://localhost:60803/auth/shopify/callback",
-  "https://localhost:60803/api/auth/callback"
+  "https://localhost:52671/auth/callback",
+  "https://localhost:52671/auth/shopify/callback",
+  "https://localhost:52671/api/auth/callback"
 ]
 
 [pos]
