@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@ownego/polaris-vue": "^2.1.31",
+    "@shopify/polaris-icons": "^9.3.1",
     "pinia": "^3.0.3",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
