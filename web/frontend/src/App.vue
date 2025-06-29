@@ -4,7 +4,7 @@
 	import locales from '@ownego/polaris-vue/dist/locales/en.json';
 
   import NavMenuItem from '@/components/shared/NavMenuItem/index.vue';
-
+	import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 
 	onMounted(() => {
 		// Type assertion for Shopify global object
@@ -27,7 +27,7 @@
 		<main class="wrapper">
 			<aside class="sidebar">
 				<div class="sidebar__wrapper">
-					<Card>
+					<Card padding="0">
 						<div class="sidebar__top">
 							<Form noValidate>
 								<TextField
@@ -38,6 +38,8 @@
 								/>
 							</Form>
 						</div>
+						<!-- Menu List Group -->
+						<MenuListGroup />
 					</Card>
 				</div>
 			</aside>
@@ -76,7 +78,7 @@
 	/* background-color: blue; */
 }
 .sidebar__top {
-	margin-bottom: 4px;
+	padding: 12px 12px 0 12px
 }
 
 .main_content {

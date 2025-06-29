@@ -58,11 +58,6 @@ const resourceItemsSecond = [
 
 <template>
   <Page fullWidth title="3/4 inch Leather pet collar" compactTitle :backAction="{ content: 'Products', url: '#' }">
-    <template #pageTitle>
-      <Badge tone="success">Paid</Badge>
-    </template>
-
-
     <Layout>
       <LayoutSection variant="fullWidth">
         <Card roundedAbove="sm">
