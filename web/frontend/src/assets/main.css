@@ -1,1 +1,12 @@
 @import '@ownego/polaris-vue/dist/style.css';
+
+:root {
+	--sidebar-width: 274px;
+}
+
+#app {
+	overflow: hidden;
+	height: 100%;
+  display: flex;
+  width: 100%;
+}

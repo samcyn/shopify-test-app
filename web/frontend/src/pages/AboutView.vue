@@ -1,3 +1,147 @@
+<script setup lang="ts">
+import {
+  Page,
+  Text,
+  Badge,
+  LegacyCard,
+  Card,
+  BlockStack,
+  InlineStack,
+  ButtonGroup,
+  Button,
+  Layout,
+  LayoutSection,
+  ResourceList,
+  ResourceItem,
+  Thumbnail,
+  LegacyCardSection
+} from '@ownego/polaris-vue';
+
+const resourceItems = [
+  {
+    id: '1',
+    name: 'Product 1',
+    url: '#',
+    sku: '1234567890',
+    quantity: 10,
+    media: {
+      source: 'https://burst.shopifycdn.com/photos/black-orange-stripes_373x@2x.jpg',
+      alt: 'Product 1',
+    },
+  },
+];
+const resourceItemsSecond = [
+  {
+    id: '342',
+    url: '#',
+    name: 'Black & orange scarf',
+    sku: '9234194023',
+    quantity: '100',
+    media: {
+      source: 'https://burst.shopifycdn.com/photos/black-orange-stripes_373x@2x.jpg',
+      alt: 'Black orange scarf',
+    },
+  },
+  {
+    id: '257',
+    url: '#',
+    name: 'Tucan scarf',
+    sku: '9234194010',
+    quantity: '201',
+    media: {
+      source: 'https://burst.shopifycdn.com/photos/tucan-scarf_373x@2x.jpg',
+      alt: 'Tucan scarf',
+    },
+  },
+];
+</script>
+
 <template>
-  About view
+  <Page fullWidth title="3/4 inch Leather pet collar" compactTitle :backAction="{ content: 'Products', url: '#' }">
+    <template #pageTitle>
+      <Badge tone="success">Paid</Badge>
+    </template>
+
+
+    <Layout>
+      <LayoutSection variant="fullWidth">
+        <Card roundedAbove="sm">
+          <BlockStack gap="500">
+            <BlockStack gap="200">
+              <Text as="h2" variant="headingSm">
+                Secure your account with 2-step authentication
+              </Text>
+              <Text as="p" variant="bodyMd">
+                Two-step authentication adds an extra layer of security when logging
+                in to your account. A special code will be required each time you
+                log in, ensuring only you can access your account.
+              </Text>
+            </BlockStack>
+            <InlineStack align="end">
+              <ButtonGroup>
+                <Button accessibilityLabel="Enable two-step authentication" @click="() => { }">
+                  Enable two-step authentication
+                </Button>
+                <Button variant="plain">Learn more</Button>
+              </ButtonGroup>
+            </InlineStack>
+          </BlockStack>
+        </Card>
+      </LayoutSection>
+      <LayoutSection variant="fullWidth">
+        <LegacyCard title="Credit card" sectioned>
+          <Text as="p">Credit card information</Text>
+        </LegacyCard>
+      </LayoutSection>
+      <LayoutSection variant="fullWidth">
+        <LegacyCard title="Florida" :actions="[{ content: 'Manage' }]">
+          <LegacyCardSection>
+            <Text tone="subdued" as="span">
+              455 units available
+            </Text>
+          </LegacyCardSection>
+          <LegacyCardSection title="Items">
+            <ResourceList :resourceName="{ singular: 'product', plural: 'products' }" :items="resourceItems">
+              <ResourceItem v-for="item in resourceItems" :key="item.id" :id="item.id" :url="item.url"
+                :accessibilityLabel="`View details for ${item.name}`">
+                <template #media>
+                  <Thumbnail :source="item.media.source" :alt="item.media.alt" />
+                </template>
+                <Text variant="bodyMd" fontWeight="bold" as="h3">
+                  {{ item.name }}
+                </Text>
+                <div>SKU: {{ item.sku }}</div>
+                <div>{{ item.quantity }} available</div>
+              </ResourceItem>
+            </ResourceList>
+          </LegacyCardSection>
+        </LegacyCard>
+      </LayoutSection>
+
+      <LayoutSection variant="fullWidth">
+        <LegacyCard title="Nevada" :actions="[{ content: 'Manage' }]">
+          <LegacyCardSection>
+            <Text tone="subdued" as="span">
+              301 units available
+            </Text>
+          </LegacyCardSection>
+          <LegacyCardSection title="Items">
+            <ResourceList :resourceName="{ singular: 'product', plural: 'products' }" :items="resourceItems">
+              <ResourceItem v-for="item in resourceItemsSecond" :key="item.id" :id="item.id" :url="item.url"
+                :accessibilityLabel="`View details for ${item.name}`">
+                <template #media>
+                  <Thumbnail :source="item.media.source" :alt="item.media.alt" />
+                </template>
+                <Text variant="bodyMd" fontWeight="bold" as="h3">
+                  {{ item.name }}
+                </Text>
+                <div>SKU: {{ item.sku }}</div>
+                <div>{{ item.quantity }} available</div>
+              </ResourceItem>
+            </ResourceList>
+          </LegacyCardSection>
+        </LegacyCard>
+      </LayoutSection>
+    </Layout>
+  </Page>
 </template>

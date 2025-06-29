@@ -55,17 +55,19 @@ const proxyOptions = {
 
 export default defineConfig({
   root: dirname(fileURLToPath(import.meta.url)),
-  plugins: [vue(
-    {
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith('ui-'),
+  plugins: [
+    vue(
+      {
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => tag.startsWith('ui-'),
+          },
         },
-      },
-    }
-  ),
-  vueJsx(),
-  vueDevTools()],
+      }
+    ),
+    vueJsx(),
+    // vueDevTools()
+  ],
   resolve: {
     preserveSymlinks: true,
     dedupe: ['vue'],

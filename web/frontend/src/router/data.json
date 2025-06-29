@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "name": "home",
+      "component": "HomeView",
+      "children": [
+        {
+          "path": "/about",
+          "name": "about",
+          "component": "AboutView"
+        }
+      ]
+    }
+  ]
+}
