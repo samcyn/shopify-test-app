@@ -1,21 +1,12 @@
-<script setup>
-  import { ref, onMounted, computed, onUnmounted, onBeforeMount } from 'vue';
-
-	import { AppProvider, Link } from '@ownego/polaris-vue';
+<script setup lang="ts">
+  import { onMounted } from 'vue';
+	import { AppProvider } from '@ownego/polaris-vue';
 	import locales from '@ownego/polaris-vue/dist/locales/en.json';
 
+  import NavMenuItem from '@/components/shared/NavMenuItem/index.vue';
 
-	// const app = window.ShopifyApp;
-
-	// if (window.AppBridge && window.AppBridge.actions) {
-	// 	const { Redirect } = window.AppBridge.actions;
-	// 	unsubscribeRedirect = app.subscribe(Redirect.Action.APP, (data) => {
-	// 		router.replace({ path: data.path });
-	// 	});
-	// }
 
 	onMounted(() => {
-		console.log('onMounted', window.AppFrame);
 
 		// shopify.webVitals.onReport(callback);
 		// shopify.ready(callback);
@@ -24,18 +15,9 @@
 
 <template>
 	<ui-nav-menu>
-		<!-- <Link to="/" rel="home">
-			Home
-		</Link>
-		<Link to="/about">
-			About
-		</Link>
-		<Link to="/settings">
-			Settings
-		</Link> -->
-		<a href="/" rel="home">Home</a>
-		<a href="/about">About</a>
-		<a href="/settings">Settings</a>
+		<nav-menu-item to="/" rel="home" title="Home" />
+		<nav-menu-item to="/about" title="About" />
+		<nav-menu-item to="/settings" title="Settings" />
 	</ui-nav-menu>
 	<AppProvider :i18n="locales">
 		<router-view />

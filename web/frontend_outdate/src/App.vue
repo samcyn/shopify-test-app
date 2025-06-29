@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
   import { onMounted } from 'vue';
 	import { AppProvider } from '@ownego/polaris-vue';
 	import locales from '@ownego/polaris-vue/dist/locales/en.json';
