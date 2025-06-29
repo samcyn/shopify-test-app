@@ -1,9 +1,16 @@
 <script setup lang="ts">
-import { defineAsyncComponent, h } from 'vue';
+import { defineAsyncComponent, h, type Component } from 'vue';
 import {
   Icon,
 } from '@ownego/polaris-vue';
 
+const props = withDefaults(defineProps<{
+  icon?: string;
+  title?: string;
+}>(), {
+  icon: 'ArchiveIcon',
+  title: 'Title',
+});
 
 const customSvg = `<path
   fill-rule="evenodd"
@@ -33,11 +40,29 @@ const customSvg = `<path
 />`;
 
 const SvgAsyncComp = defineAsyncComponent({
-  loader: () => import('@src/assets/polaris-icons/ArchiveIcon.svg'),
-  errorComponent: h('svg', {
+  loader: async() => {
+    const icon = props.icon;
+    if(!icon) {
+      return h('svg', {
+        viewBox: '0 0 20 20',
+        xmlns: 'http://www.w3.org/2000/svg',
+        innerHTML: customSvg,
+      });
+    }
+    const svg = await import(`@shopify/polaris-icons/dist/svg/ArchiveIcon.svg?raw`);
+    return h(Icon, {
+      source: svg.default,
+    });
+  },
+  loadingComponent: h('svg', {
     viewBox: '0 0 20 20',
     xmlns: 'http://www.w3.org/2000/svg',
     innerHTML: customSvg,
+  }),
+  errorComponent: h('svg', {
+    viewBox: '0 0 20 20',
+    xmlns: 'http://www.w3.org/2000/svg',
+    innerHTML: 'Error',
   }),
 });
 </script>
@@ -46,7 +71,7 @@ const SvgAsyncComp = defineAsyncComponent({
   <li class="menu">
     <router-link to="/" class="menu__link">
       <span class="menu__wrapper">
-        <Icon :source="SvgAsyncComp" class="menu__link-icon"></Icon>
+         <SvgAsyncComp class="menu__link-icon" />
         <span class="menu__link-text">Review 1</span>
       </span>
     </router-link>
