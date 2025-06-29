@@ -3,7 +3,7 @@
 client_id = "0dc87d78fddd59cf49787ed52844b377"
 name = "template-ruby"
 handle = "template-ruby-1"
-application_url = "https://budget-languages-opening-discounted.trycloudflare.com"
+application_url = "https://track-pointing-light-seminars.trycloudflare.com"
 embedded = true
 
 [build]
@@ -18,7 +18,7 @@ api_version = "2025-04"
 scopes = "write_products"
 
 [auth]
-redirect_urls = ["https://budget-languages-opening-discounted.trycloudflare.com/auth/callback", "https://budget-languages-opening-discounted.trycloudflare.com/auth/shopify/callback", "https://budget-languages-opening-discounted.trycloudflare.com/api/auth/callback"]
+redirect_urls = ["https://track-pointing-light-seminars.trycloudflare.com/auth/callback", "https://track-pointing-light-seminars.trycloudflare.com/auth/shopify/callback", "https://track-pointing-light-seminars.trycloudflare.com/api/auth/callback"]
 
 [pos]
 embedded = false

@@ -22,10 +22,10 @@ const onClick = (e: Events['onClick']) => {
   const target = e.target as HTMLElement;
   const href = target?.dataset.href;
   if (href) {
-    history.pushState({}, "", href);
+    // history.pushState({}, "", href);
     router.push(href);
   } else {
-    history.pushState({}, "", '/');
+    // history.pushState({}, "", '/');
     router.push('/');
   }
 }

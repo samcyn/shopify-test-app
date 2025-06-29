@@ -7,8 +7,10 @@
 
 
 	onMounted(() => {
-
-		// shopify.webVitals.onReport(callback);
+		// Type assertion for Shopify global object
+		(window as any).shopify?.webVitals?.onReport((event: any) => {
+			console.log(event);
+		});
 		// shopify.ready(callback);
 	});
 </script>
