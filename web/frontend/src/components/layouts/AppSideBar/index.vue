@@ -29,7 +29,13 @@ const nodes = computed(() => {
       <Card padding="0">
         <div class="sidebar__top">
           <Form noValidate>
-            <TextField type="text" size="medium" autoComplete="off" placeholder="Search" />
+            <TextField
+              type="text"
+              size="medium"
+              autoComplete="off"
+              placeholder="Search"
+              prefix="🔍"
+            />
           </Form>
         </div>
         <!-- Menu List Group -->

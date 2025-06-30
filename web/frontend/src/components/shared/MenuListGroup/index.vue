@@ -26,8 +26,8 @@ defineProps<Pick<IRouteGroups, 'children'>>();
 }
 
 .menu_list_group {
-  height: 100%;
-  max-height: calc(100vh - 48px);
+  /* height: 100%; */
+  height: calc(100vh - 48px);
   overflow-y: auto;
 }
 
@@ -37,6 +37,7 @@ defineProps<Pick<IRouteGroups, 'children'>>();
 
 @media (min-width: 768px) {
   .menu_list_group {
+    height: auto;
     max-height: calc(100vh * 0.75);
   }
 }
