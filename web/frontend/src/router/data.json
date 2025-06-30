@@ -2,13 +2,60 @@
   "routes": [
     {
       "path": "/",
-      "name": "home",
+      "title": "Home",
+      "name": "home_view",
       "component": "HomeView",
       "children": [
         {
-          "path": "/about",
-          "name": "about",
-          "component": "AboutView"
+          "path": "/review-dashboard",
+          "title": "Review Dashboard",
+          "name": "review_dashboard_view",
+          "component": "ReviewDashboardView"
+        },
+        {
+          "path": "/request-dashboard",
+          "title": "Request Dashboard",
+          "name": "request_dashboard_view",
+          "component": "RequestDashboardView"
+        }
+      ]
+    },
+    {
+      "path": "/reviews",
+      "title": "Reviews",
+      "name": "reviews_view",
+      "component": "ReviewsView",
+      "children": [
+        {
+          "path": "/add-review",
+          "title": "Add Review",
+          "name": "add_review_view",
+          "component": "AddReviewView"
+        },
+        {
+          "path": "/review-detail",
+          "title": "Review Detail",
+          "name": "review_detail_view",
+          "component": "ReviewDetailView"
+        }
+      ]
+    },
+    {
+      "path": "/settings",
+      "title": "Settings",
+      "name": "settings_view",
+      "children": [
+        {
+          "path": "/add-request",
+          "title": "Add Request",
+          "name": "add_request_view",
+          "component": "AddRequestView"
+        },
+        {
+          "path": "/request-detail",
+          "title": "Request Detail",
+          "name": "request_detail_view",
+          "component": "RequestDetailView"
         }
       ]
     }
