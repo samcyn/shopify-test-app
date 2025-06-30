@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import MenuLinkListItem from '@/components/shared/MenuLinkListItem/index.vue';
 import MenuTitleListItem from '@/components/shared/MenuTitleListItem/index.vue';
+import type { IRouteGroup } from '@/router/types';
+
+defineProps<IRouteGroup>();
+
 </script>
 <template>
   <ul class="menu_list">
-    <MenuTitleListItem />
-    <MenuLinkListItem />
-    <MenuLinkListItem />
+    <MenuTitleListItem :title="title" />
+    <MenuLinkListItem
+      v-for="child in children"
+      :key="child.path"
+      v-bind="child"
+    />
   </ul>
 </template>
 

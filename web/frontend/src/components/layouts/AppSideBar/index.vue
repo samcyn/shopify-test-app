@@ -2,7 +2,14 @@
 import { Card, Form, TextField } from '@ownego/polaris-vue';
 
 import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
+import data from '@/router/data.json';
+import type { IRoutes } from '@/router/types';
 
+const pageData = data as IRoutes;
+
+const { home, reviews, settings } = pageData;
+
+const nodes = settings.children;
 </script>
 
 <template>
@@ -15,7 +22,7 @@ import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
           </Form>
         </div>
         <!-- Menu List Group -->
-        <MenuListGroup />
+        <MenuListGroup :children="nodes" />
       </Card>
     </div>
   </aside>
@@ -39,7 +46,7 @@ import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 }
 
 .sidebar__top {
-  padding: 12px 12px 0 12px
+  padding: 12px 12px 0 12px;
 }
 
 @media (min-width: 768px) {

@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import JMIcon from '@/components/shared/JMIcon/index.vue';
+import type { IRoute } from '@/router/types';
 
-withDefaults(defineProps<{
-  icon?: string;
-  title?: string;
-}>(), {
+withDefaults(defineProps<IRoute>(), {
   icon: 'ArchiveIcon',
   title: 'Title',
 });
 </script>
 
 <template>
-  <li class="menu">
-    <router-link to="/" class="menu__link">
+  <li class="menu" :data-link-name="name">
+    <router-link :to="{ name: name }" class="menu__link">
       <span class="menu__wrapper">
-        <JMIcon icon="ArchiveIcon" class="menu__link-icon" />
-        <span class="menu__link-text">Review 1</span>
+        <JMIcon :icon="icon" class="menu__link-icon" />
+        <span class="menu__link-text">{{ title}}</span>
       </span>
     </router-link>
   </li>

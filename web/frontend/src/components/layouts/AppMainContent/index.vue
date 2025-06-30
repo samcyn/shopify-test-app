@@ -30,6 +30,7 @@ const handleOpenSidebar = () => {
   padding: 24px;
   z-index: 100;
   transition: transform 0.33s cubic-bezier(0.42, 0, 0.13, 1.06);
+  overflow-y: auto;
   /* background-color: green; */
   /* padding: 16px 24px 16px calc(var(--sidebar-width) + var(--space-between-sidebar-and-main-content)/2); */
 }

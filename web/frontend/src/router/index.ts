@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../pages/HomeView.vue';
 import data from './data.json';
 import type { IRoutes } from './types';
+import { defineAsyncComponent } from 'vue';
+
+const PageComponent = () => import('../pages/AboutView.vue');
 
 const pageData = data as IRoutes;
-
 const pages = Object.keys(pageData) as (keyof IRoutes)[];
 
 const routes = pages.map((page) => {
@@ -12,9 +13,9 @@ const routes = pages.map((page) => {
 
   const flatChildren = children.flatMap((group) =>
     group.children.map(({ path, name }) => ({
-      path,
       name,
-      component: () => import('../pages/AboutView.vue'),
+      path: path.replace(/^\/+/, '').toLowerCase(),
+      component: PageComponent,
     }))
   );
 
