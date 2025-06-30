@@ -3,7 +3,7 @@
 client_id = "0dc87d78fddd59cf49787ed52844b377"
 name = "template-ruby"
 handle = "template-ruby-1"
-application_url = "https://either-democratic-enlarge-arising.trycloudflare.com"
+application_url = "https://physics-retained-sign-larry.trycloudflare.com"
 embedded = true
 
 [build]
@@ -18,7 +18,7 @@ api_version = "2025-04"
 scopes = "write_products"
 
 [auth]
-redirect_urls = ["https://either-democratic-enlarge-arising.trycloudflare.com/auth/callback", "https://either-democratic-enlarge-arising.trycloudflare.com/auth/shopify/callback", "https://either-democratic-enlarge-arising.trycloudflare.com/api/auth/callback"]
+redirect_urls = ["https://physics-retained-sign-larry.trycloudflare.com/auth/callback", "https://physics-retained-sign-larry.trycloudflare.com/auth/shopify/callback", "https://physics-retained-sign-larry.trycloudflare.com/api/auth/callback"]
 
 [pos]
 embedded = false

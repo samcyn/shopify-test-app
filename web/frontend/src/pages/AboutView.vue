@@ -73,7 +73,7 @@ const resourceItemsSecond = [
             </BlockStack>
             <InlineStack align="end">
               <ButtonGroup>
-                <Button accessibilityLabel="Enable two-step authentication" @click="() => { }">
+                <Button accessibilityLabel="Enable two-step authentication" @click="() => { $emit('openSidebar') }">
                   Enable two-step authentication
                 </Button>
                 <Button variant="plain">Learn more</Button>

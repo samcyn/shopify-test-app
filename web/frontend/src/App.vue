@@ -45,5 +45,6 @@
 	height: 100%;
 	background-color: #f1f2f4;
 	display: flex;
+	position: relative;
 }
 </style>

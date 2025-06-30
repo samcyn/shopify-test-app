@@ -2,6 +2,7 @@
 
 :root {
 	--sidebar-width: 274px;
+	--space-between-sidebar-and-main-content: 10px;
 }
 
 #app {

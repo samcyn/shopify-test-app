@@ -25,8 +25,11 @@ import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 .sidebar {
   width: var(--sidebar-width);
   height: 100%;
+  padding: 0;
   /* background-color: red; */
-  padding: 16px 5px 16px 24px;
+  position: fixed;
+  right: 0;
+  z-index: 10;
 }
 
 .sidebar__wrapper {
@@ -37,5 +40,12 @@ import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 
 .sidebar__top {
   padding: 12px 12px 0 12px
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    padding: 16px calc(var(--space-between-sidebar-and-main-content) / 2) 16px 24px;
+    right: auto;
+  }
 }
 </style>

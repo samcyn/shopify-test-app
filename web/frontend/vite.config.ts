@@ -71,7 +71,7 @@ export default defineConfig({
       }
     ),
     vueJsx(),
-    vueDevTools(),
+    // vueDevTools(),
     createSvgIconsPlugin({
       iconDirs: [polarisIconsPath],
       symbolId: 'icon-[name]',
