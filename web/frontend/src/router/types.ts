@@ -160,4 +160,182 @@ const Settings: IRouteGroups = {
   ]
 }
 
-const routes: IRoutes = [Settings];
+const Reviews: IRouteGroups = {
+  title: 'Reviews',
+  path: '/reviews',
+  name: 'reviews',
+  routes: [
+    {
+      id: 'review-management',
+      title: 'Review Management',
+      nodes: [
+        {
+          path: '/all-reviews',
+          title: 'All Reviews',
+          icon: 'all-reviews',
+          name: 'reviews-review-management-all-reviews'
+        },
+        {
+          path: '/pending-reviews',
+          title: 'Pending Reviews',
+          icon: 'pending-reviews',
+          name: 'reviews-review-management-pending-reviews'
+        },
+        {
+          path: '/approved-reviews',
+          title: 'Approved Reviews',
+          icon: 'approved-reviews',
+          name: 'reviews-review-management-approved-reviews'
+        },
+        {
+          path: '/rejected-reviews',
+          title: 'Rejected Reviews',
+          icon: 'rejected-reviews',
+          name: 'reviews-review-management-rejected-reviews'
+        }
+      ]
+    },
+    {
+      id: 'review-analytics',
+      title: 'Review Analytics',
+      nodes: [
+        {
+          path: '/overview',
+          title: 'Overview',
+          icon: 'overview',
+          name: 'reviews-review-analytics-overview'
+        },
+        {
+          path: '/performance-metrics',
+          title: 'Performance Metrics',
+          icon: 'performance-metrics',
+          name: 'reviews-review-analytics-performance-metrics'
+        },
+        {
+          path: '/customer-insights',
+          title: 'Customer Insights',
+          icon: 'customer-insights',
+          name: 'reviews-review-analytics-customer-insights'
+        },
+        {
+          path: '/trends',
+          title: 'Trends',
+          icon: 'trends',
+          name: 'reviews-review-analytics-trends'
+        }
+      ]
+    },
+    {
+      id: 'review-moderation',
+      title: 'Review Moderation',
+      nodes: [
+        {
+          path: '/moderation-queue',
+          title: 'Moderation Queue',
+          icon: 'moderation-queue',
+          name: 'reviews-review-moderation-moderation-queue'
+        },
+        {
+          path: '/spam-detection',
+          title: 'Spam Detection',
+          icon: 'spam-detection',
+          name: 'reviews-review-moderation-spam-detection'
+        },
+        {
+          path: '/content-filters',
+          title: 'Content Filters',
+          icon: 'content-filters',
+          name: 'reviews-review-moderation-content-filters'
+        }
+      ]
+    }
+  ]
+}
+
+const Home: IRouteGroups = {
+  title: 'Home',
+  path: '/',
+  name: 'home',
+  routes: [
+    {
+      id: 'dashboard',
+      title: 'Dashboard',
+      nodes: [
+        {
+          path: '/overview',
+          title: 'Overview',
+          icon: 'overview',
+          name: 'home-dashboard-overview'
+        },
+        {
+          path: '/quick-stats',
+          title: 'Quick Stats',
+          icon: 'quick-stats',
+          name: 'home-dashboard-quick-stats'
+        },
+        {
+          path: '/recent-activity',
+          title: 'Recent Activity',
+          icon: 'recent-activity',
+          name: 'home-dashboard-recent-activity'
+        }
+      ]
+    },
+    {
+      id: 'quick-actions',
+      title: 'Quick Actions',
+      nodes: [
+        {
+          path: '/moderate-reviews',
+          title: 'Moderate Reviews',
+          icon: 'moderate-reviews',
+          name: 'home-quick-actions-moderate-reviews'
+        },
+        {
+          path: '/import-reviews',
+          title: 'Import Reviews',
+          icon: 'import-reviews',
+          name: 'home-quick-actions-import-reviews'
+        },
+        {
+          path: '/view-widgets',
+          title: 'View Widgets',
+          icon: 'view-widgets',
+          name: 'home-quick-actions-view-widgets'
+        },
+        {
+          path: '/manage-coupons',
+          title: 'Manage Coupons',
+          icon: 'manage-coupons',
+          name: 'home-quick-actions-manage-coupons'
+        }
+      ]
+    },
+    {
+      id: 'notifications',
+      title: 'Notifications',
+      nodes: [
+        {
+          path: '/alerts',
+          title: 'Alerts',
+          icon: 'alerts',
+          name: 'home-notifications-alerts'
+        },
+        {
+          path: '/messages',
+          title: 'Messages',
+          icon: 'messages',
+          name: 'home-notifications-messages'
+        },
+        {
+          path: '/system-updates',
+          title: 'System Updates',
+          icon: 'system-updates',
+          name: 'home-notifications-system-updates'
+        }
+      ]
+    }
+  ]
+}
+
+const routes: IRoutes = [Home, Reviews, Settings];

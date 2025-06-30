@@ -1,63 +1,317 @@
-{
-  "routes": [
-    {
-      "path": "/",
-      "title": "Home",
-      "name": "home_view",
-      "component": "HomeView",
-      "children": [
-        {
-          "path": "/review-dashboard",
-          "title": "Review Dashboard",
-          "name": "review_dashboard_view",
-          "component": "ReviewDashboardView"
-        },
-        {
-          "path": "/request-dashboard",
-          "title": "Request Dashboard",
-          "name": "request_dashboard_view",
-          "component": "RequestDashboardView"
-        }
-      ]
-    },
-    {
-      "path": "/reviews",
-      "title": "Reviews",
-      "name": "reviews_view",
-      "component": "ReviewsView",
-      "children": [
-        {
-          "path": "/add-review",
-          "title": "Add Review",
-          "name": "add_review_view",
-          "component": "AddReviewView"
-        },
-        {
-          "path": "/review-detail",
-          "title": "Review Detail",
-          "name": "review_detail_view",
-          "component": "ReviewDetailView"
-        }
-      ]
-    },
-    {
-      "path": "/settings",
-      "title": "Settings",
-      "name": "settings_view",
-      "children": [
-        {
-          "path": "/add-request",
-          "title": "Add Request",
-          "name": "add_request_view",
-          "component": "AddRequestView"
-        },
-        {
-          "path": "/request-detail",
-          "title": "Request Detail",
-          "name": "request_detail_view",
-          "component": "RequestDetailView"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "title": "Home",
+    "path": "/",
+    "name": "home",
+    "routes": [
+      {
+        "id": "dashboard",
+        "title": "Dashboard",
+        "nodes": [
+          {
+            "path": "/overview",
+            "title": "Overview",
+            "icon": "overview",
+            "name": "home-dashboard-overview"
+          },
+          {
+            "path": "/quick-stats",
+            "title": "Quick Stats",
+            "icon": "quick-stats",
+            "name": "home-dashboard-quick-stats"
+          },
+          {
+            "path": "/recent-activity",
+            "title": "Recent Activity",
+            "icon": "recent-activity",
+            "name": "home-dashboard-recent-activity"
+          }
+        ]
+      },
+      {
+        "id": "quick-actions",
+        "title": "Quick Actions",
+        "nodes": [
+          {
+            "path": "/moderate-reviews",
+            "title": "Moderate Reviews",
+            "icon": "moderate-reviews",
+            "name": "home-quick-actions-moderate-reviews"
+          },
+          {
+            "path": "/import-reviews",
+            "title": "Import Reviews",
+            "icon": "import-reviews",
+            "name": "home-quick-actions-import-reviews"
+          },
+          {
+            "path": "/view-widgets",
+            "title": "View Widgets",
+            "icon": "view-widgets",
+            "name": "home-quick-actions-view-widgets"
+          },
+          {
+            "path": "/manage-coupons",
+            "title": "Manage Coupons",
+            "icon": "manage-coupons",
+            "name": "home-quick-actions-manage-coupons"
+          }
+        ]
+      },
+      {
+        "id": "notifications",
+        "title": "Notifications",
+        "nodes": [
+          {
+            "path": "/alerts",
+            "title": "Alerts",
+            "icon": "alerts",
+            "name": "home-notifications-alerts"
+          },
+          {
+            "path": "/messages",
+            "title": "Messages",
+            "icon": "messages",
+            "name": "home-notifications-messages"
+          },
+          {
+            "path": "/system-updates",
+            "title": "System Updates",
+            "icon": "system-updates",
+            "name": "home-notifications-system-updates"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Reviews",
+    "path": "/reviews",
+    "name": "reviews",
+    "routes": [
+      {
+        "id": "review-management",
+        "title": "Review Management",
+        "nodes": [
+          {
+            "path": "/all-reviews",
+            "title": "All Reviews",
+            "icon": "all-reviews",
+            "name": "reviews-review-management-all-reviews"
+          },
+          {
+            "path": "/pending-reviews",
+            "title": "Pending Reviews",
+            "icon": "pending-reviews",
+            "name": "reviews-review-management-pending-reviews"
+          },
+          {
+            "path": "/approved-reviews",
+            "title": "Approved Reviews",
+            "icon": "approved-reviews",
+            "name": "reviews-review-management-approved-reviews"
+          },
+          {
+            "path": "/rejected-reviews",
+            "title": "Rejected Reviews",
+            "icon": "rejected-reviews",
+            "name": "reviews-review-management-rejected-reviews"
+          }
+        ]
+      },
+      {
+        "id": "review-analytics",
+        "title": "Review Analytics",
+        "nodes": [
+          {
+            "path": "/overview",
+            "title": "Overview",
+            "icon": "overview",
+            "name": "reviews-review-analytics-overview"
+          },
+          {
+            "path": "/performance-metrics",
+            "title": "Performance Metrics",
+            "icon": "performance-metrics",
+            "name": "reviews-review-analytics-performance-metrics"
+          },
+          {
+            "path": "/customer-insights",
+            "title": "Customer Insights",
+            "icon": "customer-insights",
+            "name": "reviews-review-analytics-customer-insights"
+          },
+          {
+            "path": "/trends",
+            "title": "Trends",
+            "icon": "trends",
+            "name": "reviews-review-analytics-trends"
+          }
+        ]
+      },
+      {
+        "id": "review-moderation",
+        "title": "Review Moderation",
+        "nodes": [
+          {
+            "path": "/moderation-queue",
+            "title": "Moderation Queue",
+            "icon": "moderation-queue",
+            "name": "reviews-review-moderation-moderation-queue"
+          },
+          {
+            "path": "/spam-detection",
+            "title": "Spam Detection",
+            "icon": "spam-detection",
+            "name": "reviews-review-moderation-spam-detection"
+          },
+          {
+            "path": "/content-filters",
+            "title": "Content Filters",
+            "icon": "content-filters",
+            "name": "reviews-review-moderation-content-filters"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Settings",
+    "path": "/settings",
+    "name": "settings",
+    "routes": [
+      {
+        "id": "review-collection",
+        "title": "Review Collection",
+        "nodes": [
+          {
+            "path": "/import-reviews",
+            "title": "Import Reviews",
+            "icon": "ImportIcon",
+            "name": "settings-review-collection-import-reviews"
+          },
+          {
+            "path": "/request-reviews",
+            "title": "Request Reviews",
+            "icon": "SendIcon",
+            "name": "settings-review-collection-request-reviews"
+          },
+          {
+            "path": "/request-schedulling",
+            "title": "Request Schedulling",
+            "icon": "ClockIcon",
+            "name": "settings-review-collection-request-schedulling"
+          },
+          {
+            "path": "/email-templates",
+            "title": "Email Templates",
+            "icon": "EmailIcon",
+            "name": "settings-review-collection-email-templates"
+          },
+          {
+            "path": "/publish-and-moderation",
+            "title": "Publish and Moderation",
+            "icon": "ThumbsUpIcon",
+            "name": "settings-review-collection-publish-and-moderation"
+          }
+        ]
+      },
+      {
+        "id": "review-display",
+        "title": "Review Display",
+        "nodes": [
+          {
+            "path": "/widgets",
+            "title": "Widgets",
+            "icon": "StarIcon",
+            "name": "settings-review-display-widgets"
+          },
+          {
+            "path": "/product-review-groups",
+            "title": "Product Review Groups",
+            "icon": "MergeIcon",
+            "name": "settings-review-display-product-review-groups"
+          },
+          {
+            "path": "/social-sharing",
+            "title": "Social Sharing",
+            "icon": "SocialPostIcon",
+            "name": "settings-review-display-social-sharing"
+          },
+          {
+            "path": "/google-and-seos",
+            "title": "Google and Seos",
+            "icon": "SocialAdIcon",
+            "name": "settings-review-display-google-and-seos"
+          }
+        ]
+      },
+      {
+        "id": "discount-and-rewards",
+        "title": "Discount and Rewards",
+        "nodes": [
+          {
+            "path": "/coupons",
+            "title": "Coupons",
+            "icon": "DiscountIcon",
+            "name": "settings-discount-and-rewards-coupons"
+          },
+          {
+            "path": "/refferals",
+            "title": "Refferals",
+            "icon": "DiscountCodeIcon",
+            "name": "settings-discount-and-rewards-refferals"
+          }
+        ]
+      },
+      {
+        "id": "integrations",
+        "title": "Integrations",
+        "nodes": [
+          {
+            "path": "/integrations",
+            "title": "Integrations",
+            "icon": "ConnectIcon",
+            "name": "settings-integrations"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "title": "General",
+        "nodes": [
+          {
+            "path": "/plan",
+            "title": "Plan",
+            "icon": "PlanIcon",
+            "name": "settings-general-plan"
+          },
+          {
+            "path": "/branding",
+            "title": "Branding",
+            "icon": "PaintBrushRoundIcon",
+            "name": "settings-general-branding"
+          },
+          {
+            "path": "/language",
+            "title": "Language",
+            "icon": "LanguageIcon",
+            "name": "settings-general-language"
+          },
+          {
+            "path": "/admin-notifications",
+            "title": "Admin Notifications",
+            "icon": "NotificationIcon",
+            "name": "settings-general-admin-notifications"
+          },
+          {
+            "path": "/advanced",
+            "title": "Advanced",
+            "icon": "SettingsIcon",
+            "name": "settings-general-advanced"
+          }
+        ]
+      }
+    ]
+  }
+]
