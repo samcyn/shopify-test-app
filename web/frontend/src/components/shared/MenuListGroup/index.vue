@@ -12,6 +12,15 @@ import MenuList from '@/components/shared/MenuList/index.vue';
     <li class="menu_list_group__item">
       <MenuList />
     </li>
+    <li class="menu_list_group__item">
+      <MenuList />
+    </li>
+    <li class="menu_list_group__item">
+      <MenuList />
+    </li>
+    <li class="menu_list_group__item">
+      <MenuList />
+    </li>
   </ul>
 </template>
 

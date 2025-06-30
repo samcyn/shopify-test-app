@@ -2,7 +2,6 @@
 import {
   Page,
   Text,
-  Badge,
   LegacyCard,
   Card,
   BlockStack,

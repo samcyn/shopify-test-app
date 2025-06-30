@@ -1,11 +1,11 @@
 import { fileURLToPath, URL } from 'node:url'
-import { dirname } from 'path';
+import { dirname, resolve } from 'path';
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
-
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 if (
   process.env.npm_lifecycle_event === 'build' &&
@@ -53,6 +53,11 @@ const proxyOptions = {
   ws: false,
 };
 
+const polarisIconsPath = resolve(
+  __dirname,
+  'node_modules/@shopify/polaris-icons/dist/svg'
+)
+
 export default defineConfig({
   root: dirname(fileURLToPath(import.meta.url)),
   plugins: [
@@ -66,7 +71,11 @@ export default defineConfig({
       }
     ),
     vueJsx(),
-    // vueDevTools()
+    vueDevTools(),
+    createSvgIconsPlugin({
+      iconDirs: [polarisIconsPath],
+      symbolId: 'icon-[name]',
+    }),
   ],
   resolve: {
     preserveSymlinks: true,
