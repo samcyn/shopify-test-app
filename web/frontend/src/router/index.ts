@@ -9,12 +9,17 @@ const pageData = data as IRoutes;
 const pages = Object.keys(pageData) as (keyof IRoutes)[];
 
 const routes = pages.map((page) => {
-  const { meta, path, name, children } = pageData[page];
+  const { path, name, children } = pageData[page];
 
   const flatChildren = children.flatMap((group) =>
-    group.children.map(({ path, name }) => ({
+    group.children.map(({ path, name, description, title }) => ({
       name,
       path: path.replace(/^\/+/, '').toLowerCase(),
+      meta: {
+        identifier: page,
+        title,
+        description,
+      },
       component: PageComponent,
     }))
   );
@@ -22,7 +27,9 @@ const routes = pages.map((page) => {
   return {
     path,
     name,
-    meta,
+    meta: {
+      identifier: page,
+    },
     children: flatChildren,
   };
 });

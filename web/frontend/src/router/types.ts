@@ -3,6 +3,7 @@ export type IRoute = {
   title: string;
   icon: string;
   name: string;
+  description?: string;
 }
 
 export type IRouteGroup = {
@@ -15,14 +16,13 @@ export type IRouteGroups = {
   title: string;
   path: string;
   name: string;
-  meta: Record<'id', string>;
   children: IRouteGroup[];
 }
 
 export type IRoutes = {
-  settings: IRouteGroups;
-  reviews: IRouteGroups;
-  home: IRouteGroups;
+  menu_settings_key: IRouteGroups;
+  menu_reviews_key: IRouteGroups;
+  menu_home_key: IRouteGroups;
 };
 
 // const Settings: IRouteGroups = {

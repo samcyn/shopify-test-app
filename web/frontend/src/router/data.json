@@ -1,11 +1,8 @@
 {
-  "home": {
+  "menu_home_key": {
     "title": "Home",
     "path": "/",
     "name": "home",
-    "meta": {
-      "id": "home_page_id"
-    },
     "children": [
       {
         "id": "dashboard",
@@ -15,19 +12,22 @@
             "path": "",
             "title": "Overview",
             "icon": "HomeIcon",
-            "name": "home-dashboard-overview"
+            "name": "home-dashboard-overview",
+            "description": "Overview of the home page"
           },
           {
             "path": "/quick-stats",
             "title": "Quick Stats",
-            "icon": "ActivityIcon",
-            "name": "home-dashboard-quick-stats"
+            "icon": "ChartHistogramLastIcon",
+            "name": "home-dashboard-quick-stats",
+            "description": "Quick stats of the home page"
           },
           {
             "path": "/recent-activity",
             "title": "Recent Activity",
             "icon": "ClockIcon",
-            "name": "home-dashboard-recent-activity"
+            "name": "home-dashboard-recent-activity",
+            "description": "Recent activity of the home page"
           }
         ]
       },
@@ -39,25 +39,29 @@
             "path": "/moderate-reviews",
             "title": "Moderate Reviews",
             "icon": "ThumbsUpIcon",
-            "name": "home-quick-actions-moderate-reviews"
+            "name": "home-quick-actions-moderate-reviews",
+            "description": "Moderate reviews of the home page"
           },
           {
             "path": "/import-reviews",
             "title": "Import Reviews",
             "icon": "ImportIcon",
-            "name": "home-quick-actions-import-reviews"
+            "name": "home-quick-actions-import-reviews",
+            "description": "Import reviews of the home page"
           },
           {
             "path": "/view-widgets",
             "title": "View Widgets",
-            "icon": "EyeIcon",
-            "name": "home-quick-actions-view-widgets"
+            "icon": "ChartLineIcon",
+            "name": "home-quick-actions-view-widgets",
+            "description": "View widgets of the home page"
           },
           {
             "path": "/manage-coupons",
             "title": "Manage Coupons",
             "icon": "DiscountIcon",
-            "name": "home-quick-actions-manage-coupons"
+            "name": "home-quick-actions-manage-coupons",
+            "description": "Manage coupons of the home page"
           }
         ]
       },
@@ -69,31 +73,31 @@
             "path": "/alerts",
             "title": "Alerts",
             "icon": "AlertTriangleIcon",
-            "name": "home-notifications-alerts"
+            "name": "home-notifications-alerts",
+            "description": "Alerts of the home page"
           },
           {
             "path": "/messages",
             "title": "Messages",
-            "icon": "MessageSquareIcon",
-            "name": "home-notifications-messages"
+            "icon": "ComposeIcon",
+            "name": "home-notifications-messages",
+            "description": "Messages of the home page"
           },
           {
             "path": "/system-updates",
             "title": "System Updates",
-            "icon": "RefreshCwIcon",
-            "name": "home-notifications-system-updates"
+            "icon": "InventoryUpdatedIcon",
+            "name": "home-notifications-system-updates",
+            "description": "System updates of the home page"
           }
         ]
       }
     ]
   },
-  "reviews": {
+  "menu_reviews_key": {
     "title": "Reviews",
     "path": "/reviews",
     "name": "reviews",
-    "meta": {
-      "id": "reviews_page_id"
-    },
     "children": [
       {
         "id": "review-management",
@@ -102,26 +106,30 @@
           {
             "path": "",
             "title": "All Reviews",
-            "icon": "ListIcon",
-            "name": "reviews-review-management-all-reviews"
+            "icon": "AppExtensionIcon",
+            "name": "reviews-review-management-all-reviews",
+            "description": "All reviews of the reviews page"
           },
           {
             "path": "/pending-reviews",
             "title": "Pending Reviews",
             "icon": "ClockIcon",
-            "name": "reviews-review-management-pending-reviews"
+            "name": "reviews-review-management-pending-reviews",
+            "description": "Pending reviews of the reviews page"
           },
           {
             "path": "/approved-reviews",
             "title": "Approved Reviews",
             "icon": "CheckIcon",
-            "name": "reviews-review-management-approved-reviews"
+            "name": "reviews-review-management-approved-reviews",
+            "description": "Approved reviews of the reviews page"
           },
           {
             "path": "/rejected-reviews",
             "title": "Rejected Reviews",
             "icon": "XIcon",
-            "name": "reviews-review-management-rejected-reviews"
+            "name": "reviews-review-management-rejected-reviews",
+            "description": "Rejected reviews of the reviews page"
           }
         ]
       },
@@ -132,26 +140,30 @@
           {
             "path": "/overview",
             "title": "Overview",
-            "icon": "ChartIcon",
-            "name": "reviews-review-analytics-overview"
+            "icon": "ChartHistogramFirstLastIcon",
+            "name": "reviews-review-analytics-overview",
+            "description": "Overview of the reviews page"
           },
           {
             "path": "/performance-metrics",
             "title": "Performance Metrics",
-            "icon": "BarChartIcon",
-            "name": "reviews-review-analytics-performance-metrics"
+            "icon": "ShieldPersonIcon",
+            "name": "reviews-review-analytics-performance-metrics",
+            "description": "Performance metrics of the reviews page"
           },
           {
             "path": "/customer-insights",
             "title": "Customer Insights",
-            "icon": "UsersIcon",
-            "name": "reviews-review-analytics-customer-insights"
+            "icon": "AttachmentIcon",
+            "name": "reviews-review-analytics-customer-insights",
+            "description": "Customer insights of the reviews page"
           },
           {
             "path": "/trends",
             "title": "Trends",
-            "icon": "TrendingUpIcon",
-            "name": "reviews-review-analytics-trends"
+            "icon": "PersonalizedTextIcon",
+            "name": "reviews-review-analytics-trends",
+            "description": "Trends of the reviews page"
           }
         ]
       },
@@ -162,32 +174,32 @@
           {
             "path": "/moderation-queue",
             "title": "Moderation Queue",
-            "icon": "QueueIcon",
-            "name": "reviews-review-moderation-moderation-queue"
+            "icon": "PageDownIcon",
+            "name": "reviews-review-moderation-moderation-queue",
+            "description": "Moderation queue of the reviews page"
           },
           {
             "path": "/spam-detection",
             "title": "Spam Detection",
-            "icon": "ShieldIcon",
-            "name": "reviews-review-moderation-spam-detection"
+            "icon": "ShieldPendingIcon",
+            "name": "reviews-review-moderation-spam-detection",
+            "description": "Spam detection of the reviews page"
           },
           {
             "path": "/content-filters",
             "title": "Content Filters",
             "icon": "FilterIcon",
-            "name": "reviews-review-moderation-content-filters"
+            "name": "reviews-review-moderation-content-filters",
+            "description": "Content filters of the reviews page"
           }
         ]
       }
     ]
   },
-  "settings": {
+  "menu_settings_key": {
     "title": "Settings",
     "path": "/settings",
     "name": "settings",
-    "meta": {
-      "id": "settings_page_id"
-    },
     "children": [
       {
         "id": "review-collection",
@@ -197,31 +209,36 @@
             "path": "",
             "title": "Import Reviews",
             "icon": "ImportIcon",
-            "name": "settings-review-collection-import-reviews"
+            "name": "settings-review-collection-import-reviews",
+            "description": "Import reviews of the settings page"
           },
           {
             "path": "/request-reviews",
             "title": "Request Reviews",
             "icon": "SendIcon",
-            "name": "settings-review-collection-request-reviews"
+            "name": "settings-review-collection-request-reviews",
+            "description": "Request reviews of the settings page"
           },
           {
             "path": "/request-schedulling",
             "title": "Request Schedulling",
             "icon": "ClockIcon",
-            "name": "settings-review-collection-request-schedulling"
+            "name": "settings-review-collection-request-schedulling",
+            "description": "Request schedulling of the settings page"
           },
           {
             "path": "/email-templates",
             "title": "Email Templates",
             "icon": "EmailIcon",
-            "name": "settings-review-collection-email-templates"
+            "name": "settings-review-collection-email-templates",
+            "description": "Email templates of the settings page"
           },
           {
             "path": "/publish-and-moderation",
             "title": "Publish and Moderation",
             "icon": "ThumbsUpIcon",
-            "name": "settings-review-collection-publish-and-moderation"
+            "name": "settings-review-collection-publish-and-moderation",
+            "description": "Publish and moderation of the settings page"
           }
         ]
       },
@@ -233,25 +250,29 @@
             "path": "/widgets",
             "title": "Widgets",
             "icon": "StarIcon",
-            "name": "settings-review-display-widgets"
+            "name": "settings-review-display-widgets",
+            "description": "Widgets of the settings page"
           },
           {
             "path": "/product-review-groups",
             "title": "Product Review Groups",
             "icon": "MergeIcon",
-            "name": "settings-review-display-product-review-groups"
+            "name": "settings-review-display-product-review-groups",
+            "description": "Product review groups of the settings page"
           },
           {
             "path": "/social-sharing",
             "title": "Social Sharing",
             "icon": "SocialPostIcon",
-            "name": "settings-review-display-social-sharing"
+            "name": "settings-review-display-social-sharing",
+            "description": "Social sharing of the settings page"
           },
           {
             "path": "/google-and-seos",
             "title": "Google and Seos",
             "icon": "SocialAdIcon",
-            "name": "settings-review-display-google-and-seos"
+            "name": "settings-review-display-google-and-seos",
+            "description": "Google and seos of the settings page"
           }
         ]
       },
@@ -263,13 +284,15 @@
             "path": "/coupons",
             "title": "Coupons",
             "icon": "DiscountIcon",
-            "name": "settings-discount-and-rewards-coupons"
+            "name": "settings-discount-and-rewards-coupons",
+            "description": "Coupons of the settings page"
           },
           {
             "path": "/refferals",
             "title": "Refferals",
             "icon": "DiscountCodeIcon",
-            "name": "settings-discount-and-rewards-refferals"
+            "name": "settings-discount-and-rewards-refferals",
+            "description": "Refferals of the settings page"
           }
         ]
       },
@@ -281,7 +304,8 @@
             "path": "/integrations",
             "title": "Integrations",
             "icon": "ConnectIcon",
-            "name": "settings-integrations"
+            "name": "settings-integrations",
+            "description": "Integrations of the settings page"
           }
         ]
       },
@@ -293,31 +317,36 @@
             "path": "/plan",
             "title": "Plan",
             "icon": "PlanIcon",
-            "name": "settings-general-plan"
+            "name": "settings-general-plan",
+            "description": "Plan of the settings page"
           },
           {
             "path": "/branding",
             "title": "Branding",
             "icon": "PaintBrushRoundIcon",
-            "name": "settings-general-branding"
+            "name": "settings-general-branding",
+            "description": "Branding of the settings page"
           },
           {
             "path": "/language",
             "title": "Language",
             "icon": "LanguageIcon",
-            "name": "settings-general-language"
+            "name": "settings-general-language",
+            "description": "Language of the settings page"
           },
           {
             "path": "/admin-notifications",
             "title": "Admin Notifications",
             "icon": "NotificationIcon",
-            "name": "settings-general-admin-notifications"
+            "name": "settings-general-admin-notifications",
+            "description": "Admin notifications of the settings page"
           },
           {
             "path": "/advanced",
             "title": "Advanced",
             "icon": "SettingsIcon",
-            "name": "settings-general-advanced"
+            "name": "settings-general-advanced",
+            "description": "Advanced of the settings page"
           }
         ]
       }

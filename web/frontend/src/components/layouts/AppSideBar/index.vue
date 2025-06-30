@@ -1,15 +1,26 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 import { Card, Form, TextField } from '@ownego/polaris-vue';
 
 import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 import data from '@/router/data.json';
 import type { IRoutes } from '@/router/types';
 
+const route = useRoute();
+
 const pageData = data as IRoutes;
 
-const { home, reviews, settings } = pageData;
+const nodes = computed(() => {
+  const meta = route.meta as Record<'identifier', keyof typeof pageData>;
 
-const nodes = settings.children;
+  const { identifier } = meta;
+
+  const records = pageData[identifier || 'menu_home_key'].children;
+
+  return records;
+});
 </script>
 
 <template>

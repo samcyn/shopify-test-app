@@ -10,10 +10,14 @@ withDefaults(defineProps<IRoute>(), {
 
 <template>
   <li class="menu" :data-link-name="name">
-    <router-link :to="{ name: name }" class="menu__link">
+    <router-link
+      :to="{ name: name }"
+      class="menu__link"
+      exact-active-class="menu__link--active"
+    >
       <span class="menu__wrapper">
         <JMIcon :icon="icon" class="menu__link-icon" />
-        <span class="menu__link-text">{{ title}}</span>
+        <span class="menu__link-text">{{ title }}</span>
       </span>
     </router-link>
   </li>
@@ -29,7 +33,8 @@ withDefaults(defineProps<IRoute>(), {
   /* var(--p-color-text); */
 }
 
-.menu__link:hover .menu__wrapper {
+.menu__link:hover .menu__wrapper,
+.menu__link--active .menu__wrapper {
   background-color: #f1f2f4;
 }
 

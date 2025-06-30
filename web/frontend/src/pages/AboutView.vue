@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import {
   Page,
   Text,
@@ -15,6 +16,7 @@ import {
   Thumbnail,
   LegacyCardSection
 } from '@ownego/polaris-vue';
+import { useRoute } from 'vue-router';
 
 const resourceItems = [
   {
@@ -53,30 +55,38 @@ const resourceItemsSecond = [
     },
   },
 ];
+
+const route = useRoute();
+
+const pageInfo = computed(() => {
+  const { title, description } = route.meta as Record<string, string>;
+  return {
+    title: title || 'No title',
+    description: description || 'No description',
+  };
+});
 </script>
 
 <template>
-  <Page fullWidth title="3/4 inch Leather pet collar" compactTitle :backAction="{ content: 'Products', url: '#' }">
+  <Page fullWidth :title="pageInfo.title" compactTitle :backAction="{ content: 'Products', url: '#' }">
     <Layout>
       <LayoutSection variant="fullWidth">
         <Card roundedAbove="sm">
           <BlockStack gap="500">
             <BlockStack gap="200">
               <Text as="h2" variant="headingSm">
-                Secure your account with 2-step authentication
+                {{ pageInfo.description }}
               </Text>
               <Text as="p" variant="bodyMd">
-                Two-step authentication adds an extra layer of security when logging
-                in to your account. A special code will be required each time you
-                log in, ensuring only you can access your account.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </Text>
             </BlockStack>
             <InlineStack align="end">
               <ButtonGroup>
                 <Button accessibilityLabel="Enable two-step authentication" @click="() => { $emit('openSidebar') }">
-                  Enable two-step authentication
+                  Mobile Navigation
                 </Button>
-                <Button variant="plain">Learn more</Button>
+                <!-- <Button variant="plain">Learn more</Button> -->
               </ButtonGroup>
             </InlineStack>
           </BlockStack>

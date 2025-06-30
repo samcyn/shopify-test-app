@@ -37,7 +37,7 @@ defineProps<Pick<IRouteGroups, 'children'>>();
 
 @media (min-width: 768px) {
   .menu_list_group {
-    max-height: 450px;
+    max-height: calc(100vh * 0.75);
   }
 }
 </style>
