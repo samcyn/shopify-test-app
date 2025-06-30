@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 const isSidebarOpen = ref(false);
 
 const handleOpenSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
 }
+
+watch(() => route.fullPath, () => {
+  isSidebarOpen.value = false;
+});
 </script>
 
 <template>
@@ -26,7 +33,7 @@ const handleOpenSidebar = () => {
   /* width: calc(100% - var(--sidebar-width)); */
   width: 100%;
   height: 100%;
-	background-color: #f1f2f4;
+  background-color: #f1f2f4;
   padding: 24px;
   z-index: 100;
   transition: transform 0.33s cubic-bezier(0.42, 0, 0.13, 1.06);
@@ -49,6 +56,8 @@ const handleOpenSidebar = () => {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);

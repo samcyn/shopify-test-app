@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 import { Card, Form, TextField } from '@ownego/polaris-vue';
@@ -8,18 +8,41 @@ import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
 import data from '@/router/data.json';
 import type { IRoutes } from '@/router/types';
 
+const searchTerm = ref('');
 const route = useRoute();
 
 const pageData = data as IRoutes;
 
 const nodes = computed(() => {
   const meta = route.meta as Record<'identifier', keyof typeof pageData>;
-
   const { identifier } = meta;
 
-  const records = pageData[identifier || 'menu_home_key'].children;
+  const groups = pageData[identifier || 'menu_home_key'].children;
 
-  return records;
+  if (!searchTerm.value) return groups;
+
+  // Apply filtering
+  return groups
+    .map((group) => {
+      const filteredChildren = group.children.filter((route) => {
+        const lowerSearch = searchTerm.value.toLowerCase();
+        return (
+          route.title.toLowerCase().includes(lowerSearch) ||
+          route.name.toLowerCase().includes(lowerSearch) ||
+          route.description?.toLowerCase().includes(lowerSearch)
+        );
+      });
+
+      return {
+        ...group,
+        children: filteredChildren,
+      };
+    })
+    .filter((group) => group.children.length > 0); // Remove empty groups
+});
+
+watch(() => route.fullPath, () => {
+  searchTerm.value = '';
 });
 </script>
 
@@ -30,6 +53,7 @@ const nodes = computed(() => {
         <div class="sidebar__top">
           <Form noValidate>
             <TextField
+              v-model="searchTerm"
               type="text"
               size="medium"
               autoComplete="off"
