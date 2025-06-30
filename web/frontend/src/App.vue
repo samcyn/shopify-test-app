@@ -21,7 +21,7 @@
 <template>
 	<ui-nav-menu>
 		<nav-menu-item to="/" rel="home" title="Home" />
-		<nav-menu-item to="/about" title="About" />
+		<nav-menu-item to="/reviews" title="Reviews (17)" />
 		<nav-menu-item to="/settings" title="Settings" />
 	</ui-nav-menu>
 	<AppProvider :i18n="locales" class="app_provider">

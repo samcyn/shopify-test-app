@@ -8,27 +8,35 @@ type IRoute = {
 type IRouteGroup = {
   id: string;
   title: string;
-  nodes: IRoute[];
+  children: IRoute[];
 }
 
 type IRouteGroups = {
   title: string;
   path: string;
   name: string;
-  routes: IRouteGroup[];
+  meta: Record<'id', string>;
+  children: IRouteGroup[];
 }
 
-type IRoutes = IRouteGroups[];
+export type IRoutes = {
+  settings: IRouteGroups;
+  reviews: IRouteGroups;
+  home: IRouteGroups;
+};
 
 const Settings: IRouteGroups = {
   title: 'Settings',
   path: '/settings',
   name: 'settings',
-  routes: [
+  meta: {
+    id: 'settings_page_id',
+  },
+  children: [
     {
       id: 'review-collection',
       title: 'Review Collection',
-      nodes: [
+      children: [
         {
           path: '/import-reviews',
           title: 'Import Reviews',
@@ -64,7 +72,7 @@ const Settings: IRouteGroups = {
     {
       id: 'review-display',
       title: 'Review Display',
-      nodes: [
+      children: [
         {
           path: '/widgets',
           title: 'Widgets',
@@ -94,7 +102,7 @@ const Settings: IRouteGroups = {
     {
       id: 'discount-and-rewards',
       title: 'Discount and Rewards',
-      nodes: [
+      children: [
         {
           path: '/coupons',
           title: 'Coupons',
@@ -112,7 +120,7 @@ const Settings: IRouteGroups = {
     {
       id: 'integrations',
       title: 'Integrations',
-      nodes: [
+      children: [
         {
           path: '/integrations',
           title: 'Integrations',
@@ -124,7 +132,7 @@ const Settings: IRouteGroups = {
     {
       id: 'general',
       title: 'General',
-      nodes: [
+      children: [
         {
           path: '/plan',
           title: 'Plan',
@@ -164,11 +172,14 @@ const Reviews: IRouteGroups = {
   title: 'Reviews',
   path: '/reviews',
   name: 'reviews',
-  routes: [
+  meta: {
+    id: 'reviews_page_id',
+  },
+  children: [
     {
       id: 'review-management',
       title: 'Review Management',
-      nodes: [
+      children: [
         {
           path: '/all-reviews',
           title: 'All Reviews',
@@ -198,7 +209,7 @@ const Reviews: IRouteGroups = {
     {
       id: 'review-analytics',
       title: 'Review Analytics',
-      nodes: [
+      children: [
         {
           path: '/overview',
           title: 'Overview',
@@ -228,7 +239,7 @@ const Reviews: IRouteGroups = {
     {
       id: 'review-moderation',
       title: 'Review Moderation',
-      nodes: [
+      children: [
         {
           path: '/moderation-queue',
           title: 'Moderation Queue',
@@ -256,11 +267,14 @@ const Home: IRouteGroups = {
   title: 'Home',
   path: '/',
   name: 'home',
-  routes: [
+  meta: {
+    id: 'home_page_id',
+  },
+  children: [
     {
       id: 'dashboard',
       title: 'Dashboard',
-      nodes: [
+      children: [
         {
           path: '/overview',
           title: 'Overview',
@@ -284,7 +298,7 @@ const Home: IRouteGroups = {
     {
       id: 'quick-actions',
       title: 'Quick Actions',
-      nodes: [
+      children: [
         {
           path: '/moderate-reviews',
           title: 'Moderate Reviews',
@@ -314,7 +328,7 @@ const Home: IRouteGroups = {
     {
       id: 'notifications',
       title: 'Notifications',
-      nodes: [
+      children: [
         {
           path: '/alerts',
           title: 'Alerts',
@@ -338,4 +352,8 @@ const Home: IRouteGroups = {
   ]
 }
 
-const routes: IRoutes = [Home, Reviews, Settings];
+const routes: IRoutes = {
+  settings: Settings,
+  reviews: Reviews,
+  home: Home
+}
