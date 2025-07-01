@@ -10,6 +10,8 @@ const handleOpenSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
 }
 
+const handleOpenSidebar2 = () => {}
+
 watch(() => route.fullPath, () => {
   isSidebarOpen.value = false;
 });
@@ -20,7 +22,7 @@ watch(() => route.fullPath, () => {
     <div v-if="isSidebarOpen" class="main_content__overlay" @click="handleOpenSidebar"></div>
     <div class="main_content__wrapper">
       <div class="main_content_no_margin">
-        <router-view @openSidebar="handleOpenSidebar" />
+        <router-view :showSidebarButtons="true" @openSidebar="handleOpenSidebar" @openSidebar2="handleOpenSidebar2" />
       </div>
     </div>
   </section>

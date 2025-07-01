@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
+
+import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
+import data from '@/router/data.json';
+import type { IRoutes } from '@/router/types';
+
 import {
   Page,
   Text,
@@ -14,7 +19,8 @@ import {
   ResourceList,
   ResourceItem,
   Thumbnail,
-  LegacyCardSection
+  LegacyCardSection,
+  Form, TextField
 } from '@ownego/polaris-vue';
 import { useRoute } from 'vue-router';
 
@@ -65,6 +71,16 @@ const pageInfo = computed(() => {
     description: description || 'No description',
   };
 });
+
+defineProps<{
+  showSidebarButtons?: boolean;
+}>();
+
+const emit = defineEmits<{ (e: 'openSidebar'): void, (e: 'openSidebar2'): void }>();
+
+const handleOpenModal = () => {
+  emit('openSidebar2');
+};
 </script>
 
 <template>
@@ -81,7 +97,7 @@ const pageInfo = computed(() => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </Text>
             </BlockStack>
-            <InlineStack align="end">
+            <InlineStack v-if="showSidebarButtons" align="end">
               <ButtonGroup>
                 <Button accessibilityLabel="Enable two-step authentication" @click="() => { $emit('openSidebar') }">
                   Mobile Navigation
@@ -95,6 +111,13 @@ const pageInfo = computed(() => {
       <LayoutSection variant="fullWidth">
         <LegacyCard title="Credit card" sectioned>
           <Text as="p">Credit card information</Text>
+          <InlineStack v-if="showSidebarButtons" align="end">
+            <ButtonGroup>
+              <Button accessibilityLabel="Enable two-step authentication" @click="handleOpenModal">
+                Mobile Navigation 2
+              </Button>
+            </ButtonGroup>
+          </InlineStack>
         </LegacyCard>
       </LayoutSection>
       <LayoutSection variant="fullWidth">

@@ -111,15 +111,15 @@
             "description": "All reviews of the reviews page"
           },
           {
-            "path": "/pending-reviews",
-            "title": "Pending Reviews",
+            "path": "/review-requests",
+            "title": "Review requests",
             "icon": "ClockIcon",
             "name": "reviews-review-management-pending-reviews",
             "description": "Pending reviews of the reviews page"
           },
           {
-            "path": "/approved-reviews",
-            "title": "Approved Reviews",
+            "path": "/customers-questions",
+            "title": "Customers questions",
             "icon": "CheckIcon",
             "name": "reviews-review-management-approved-reviews",
             "description": "Approved reviews of the reviews page"

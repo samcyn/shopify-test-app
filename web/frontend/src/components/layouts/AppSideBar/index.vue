@@ -14,10 +14,7 @@ const route = useRoute();
 const pageData = data as IRoutes;
 
 const nodes = computed(() => {
-  const meta = route.meta as Record<'identifier', keyof typeof pageData>;
-  const { identifier } = meta;
-
-  const groups = pageData[identifier || 'menu_home_key'].children;
+  const groups = pageData['menu_settings_key'].children;
 
   if (!searchTerm.value) return groups;
 

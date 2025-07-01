@@ -2,11 +2,10 @@
 
 :root {
 	--sidebar-width: 274px;
-	--space-between-sidebar-and-main-content: 10px;
+	--space-between-sidebar-and-main-content: 24px;
 }
 
 #app {
-	overflow: hidden;
 	height: 100%;
   display: flex;
   width: 100%;
