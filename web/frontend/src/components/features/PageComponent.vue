@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import {
   Page,
   Text,
@@ -13,8 +15,9 @@ import {
   ResourceList,
   ResourceItem,
   Thumbnail,
-  LegacyCardSection
+  LegacyCardSection,
 } from '@ownego/polaris-vue';
+import { useRoute } from 'vue-router';
 
 const resourceItems = [
   {
@@ -53,30 +56,48 @@ const resourceItemsSecond = [
     },
   },
 ];
+
+const route = useRoute();
+
+const pageInfo = computed(() => {
+  const { title, description } = route.meta as Record<string, string>;
+  return {
+    title: title || 'No title',
+    description: description || 'No description',
+  };
+});
+
+defineProps<{
+  showSidebarButtons?: boolean;
+}>();
+
+const emit = defineEmits<{ (e: 'openSidebar'): void, (e: 'openSidebar2'): void }>();
+
+const handleOpenModal = () => {
+  emit('openSidebar2');
+};
 </script>
 
 <template>
-  <Page fullWidth title="3/4 inch Leather pet collar" compactTitle :backAction="{ content: 'Products', url: '#' }">
+  <Page fullWidth :title="pageInfo.title" compactTitle :backAction="{ content: 'Products', url: '#', }">
     <Layout>
       <LayoutSection variant="fullWidth">
         <Card roundedAbove="sm">
           <BlockStack gap="500">
             <BlockStack gap="200">
               <Text as="h2" variant="headingSm">
-                Secure your account with 2-step authentication
+                {{ pageInfo.description }}
               </Text>
               <Text as="p" variant="bodyMd">
-                Two-step authentication adds an extra layer of security when logging
-                in to your account. A special code will be required each time you
-                log in, ensuring only you can access your account.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </Text>
             </BlockStack>
-            <InlineStack align="end">
+            <InlineStack v-if="showSidebarButtons" align="end">
               <ButtonGroup>
-                <Button accessibilityLabel="Enable two-step authentication" @click="() => { }">
-                  Enable two-step authentication
+                <Button accessibilityLabel="Enable two-step authentication" @click="() => { $emit('openSidebar') }">
+                  Mobile Navigation
                 </Button>
-                <Button variant="plain">Learn more</Button>
+                <!-- <Button variant="plain">Learn more</Button> -->
               </ButtonGroup>
             </InlineStack>
           </BlockStack>
@@ -85,6 +106,13 @@ const resourceItemsSecond = [
       <LayoutSection variant="fullWidth">
         <LegacyCard title="Credit card" sectioned>
           <Text as="p">Credit card information</Text>
+          <InlineStack v-if="showSidebarButtons" align="end" class="test-button-modal">
+            <ButtonGroup>
+              <Button accessibilityLabel="Enable two-step authentication" @click="handleOpenModal">
+                Mobile Navigation 2
+              </Button>
+            </ButtonGroup>
+          </InlineStack>
         </LegacyCard>
       </LayoutSection>
       <LayoutSection variant="fullWidth">
@@ -139,3 +167,10 @@ const resourceItemsSecond = [
     </Layout>
   </Page>
 </template>
+<style lang="css" scoped>
+@media (min-width: 768px) {
+  .test-button-modal {
+    display: none;
+  }
+}
+</style>

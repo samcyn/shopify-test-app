@@ -1,8 +1,17 @@
+<script setup lang="ts">
+import type { IRoute } from '@/router/types';
+
+withDefaults(defineProps<Pick<IRoute, 'title'>>(), {
+  title: 'Title',
+});
+</script>
+
 <template>
   <li class="menu">
-    <div class="menu__title">Review Collection</div>
+    <div class="menu__title">{{ title }}</div>
   </li>
 </template>
+
 <style lang="css" scoped>
 .menu__title {
   display: block;
