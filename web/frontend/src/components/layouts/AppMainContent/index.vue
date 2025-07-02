@@ -1,19 +1,39 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, watch, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+
+import SideBarActionList from '@/components/shared/SideBarActionList/index.vue';
+import data from '@/router/data.json';
+import type { IRoutes } from '@/router/types';
 
 const route = useRoute();
+const router = useRouter();
 
 const isSidebarOpen = ref(false);
+
+const pageData = data as IRoutes;
+const groups = pageData['menu_settings_key'].children;
 
 const handleOpenSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
 }
 
-const handleOpenSidebar2 = () => {}
+const handleOpenSidebar2 = () => {
+  (window as any).shopify?.modal.show('app-main-content-modal');
+}
 
 watch(() => route.fullPath, () => {
   isSidebarOpen.value = false;
+});
+
+onMounted(() => {
+  window.addEventListener('message', (event) => {
+    const { type, to } = event.data;
+    if (type === 'change-route') {
+      router.push(to);
+      (window as any).shopify?.modal.hide('app-main-content-modal');
+    }
+  });
 });
 </script>
 
@@ -26,6 +46,9 @@ watch(() => route.fullPath, () => {
       </div>
     </div>
   </section>
+  <ui-modal id="app-main-content-modal">
+    <SideBarActionList :groups="groups" mode="modal" />
+  </ui-modal>
 </template>
 
 <style lang="css" scoped>

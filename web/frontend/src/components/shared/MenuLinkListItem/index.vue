@@ -1,25 +1,43 @@
 <script setup lang="ts">
 import JMIcon from '@/components/shared/JMIcon/index.vue';
+import MenuLinkListItemBase from '@/components/shared/MenuLinkListItem/base.vue';
 import type { IRoute } from '@/router/types';
+import type { RouterLinkProps } from 'vue-router';
+interface IMenuLinkListItemProps extends IRoute {
+  mode?: 'sidebar' | 'modal'
+}
 
-withDefaults(defineProps<IRoute>(), {
+withDefaults(defineProps<IMenuLinkListItemProps>(), {
   icon: 'ArchiveIcon',
   title: 'Title',
+  mode: 'sidebar'
 });
+
+const emit = defineEmits<{
+  (e: 'navigate', to: RouterLinkProps['to']): void
+}>();
+
+const handleNavigate = (to: RouterLinkProps['to']) => {
+  emit('navigate', to);
+}
 </script>
 
 <template>
   <li class="menu" :data-link-name="name">
-    <router-link
-      :to="{ name: name }"
-      class="menu__link"
-      exact-active-class="menu__link--active"
-    >
+    <!-- <router-link :to="{ name: name }" class="menu__link"
+      exact-active-class="menu__link--active">
       <span class="menu__wrapper">
         <JMIcon :icon="icon" class="menu__link-icon" />
         <span class="menu__link-text">{{ title }}</span>
       </span>
-    </router-link>
+    </router-link> -->
+    <MenuLinkListItemBase :to="{ name: name }" :mode="mode" class="menu__link" exact-active-class="menu__link--active"
+      @navigate="handleNavigate">
+      <span class="menu__wrapper">
+        <JMIcon :icon="icon" class="menu__link-icon" />
+        <span class="menu__link-text">{{ title }}</span>
+      </span>
+    </MenuLinkListItemBase>
   </li>
 </template>
 
@@ -30,6 +48,12 @@ withDefaults(defineProps<IRoute>(), {
   text-decoration: none;
   font-family: var(--p-font-family-sans);
   color: #303030;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
   /* var(--p-color-text); */
 }
 

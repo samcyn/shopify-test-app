@@ -111,7 +111,7 @@ const handleOpenModal = () => {
       <LayoutSection variant="fullWidth">
         <LegacyCard title="Credit card" sectioned>
           <Text as="p">Credit card information</Text>
-          <InlineStack v-if="showSidebarButtons" align="end">
+          <InlineStack v-if="showSidebarButtons" align="end" class="test-button-modal">
             <ButtonGroup>
               <Button accessibilityLabel="Enable two-step authentication" @click="handleOpenModal">
                 Mobile Navigation 2
@@ -172,3 +172,10 @@ const handleOpenModal = () => {
     </Layout>
   </Page>
 </template>
+<style lang="css" scoped>
+@media (min-width: 768px) {
+  .test-button-modal {
+    display: none;
+  }
+}
+</style>

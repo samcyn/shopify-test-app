@@ -2,18 +2,29 @@
 import MenuLinkListItem from '@/components/shared/MenuLinkListItem/index.vue';
 import MenuTitleListItem from '@/components/shared/MenuTitleListItem/index.vue';
 import type { IRouteGroup } from '@/router/types';
+import type { RouterLinkProps } from 'vue-router';
 
-defineProps<IRouteGroup>();
+interface IMenuListProps extends IRouteGroup {
+  mode?: 'sidebar' | 'modal'
+}
 
+withDefaults(defineProps<IMenuListProps>(), {
+  mode: 'sidebar'
+});
+
+const emit = defineEmits<{
+  (e: 'navigate', to: RouterLinkProps['to']): void
+}>();
+
+const handleNavigate = (to: RouterLinkProps['to']) => {
+  emit('navigate', to);
+}
 </script>
 <template>
   <ul class="menu_list">
     <MenuTitleListItem :title="title" />
-    <MenuLinkListItem
-      v-for="child in children"
-      :key="child.path"
-      v-bind="child"
-    />
+    <MenuLinkListItem v-for="child in children" :key="child.path" :mode="mode" v-bind="child"
+      @navigate="handleNavigate" />
   </ul>
 </template>
 

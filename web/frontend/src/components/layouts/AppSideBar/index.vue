@@ -1,52 +1,53 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+// import { computed, ref, watch } from 'vue';
+// import { useRoute } from 'vue-router';
 
-import { Card, Form, TextField } from '@ownego/polaris-vue';
+// import { Card, Form, TextField } from '@ownego/polaris-vue';
 
-import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
+// import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
+import SideBarActionList from '@/components/shared/SideBarActionList/index.vue';
 import data from '@/router/data.json';
 import type { IRoutes } from '@/router/types';
 
-const searchTerm = ref('');
-const route = useRoute();
+// const searchTerm = ref('');
+// const route = useRoute();
 
 const pageData = data as IRoutes;
+const groups = pageData['menu_settings_key'].children;
+// const nodes = computed(() => {
+//   const groups = pageData['menu_settings_key'].children;
 
-const nodes = computed(() => {
-  const groups = pageData['menu_settings_key'].children;
+//   if (!searchTerm.value) return groups;
 
-  if (!searchTerm.value) return groups;
+//   // Apply filtering
+//   return groups
+//     .map((group) => {
+//       const filteredChildren = group.children.filter((route) => {
+//         const lowerSearch = searchTerm.value.toLowerCase();
+//         return (
+//           route.title.toLowerCase().includes(lowerSearch) ||
+//           route.name.toLowerCase().includes(lowerSearch) ||
+//           route.description?.toLowerCase().includes(lowerSearch)
+//         );
+//       });
 
-  // Apply filtering
-  return groups
-    .map((group) => {
-      const filteredChildren = group.children.filter((route) => {
-        const lowerSearch = searchTerm.value.toLowerCase();
-        return (
-          route.title.toLowerCase().includes(lowerSearch) ||
-          route.name.toLowerCase().includes(lowerSearch) ||
-          route.description?.toLowerCase().includes(lowerSearch)
-        );
-      });
+//       return {
+//         ...group,
+//         children: filteredChildren,
+//       };
+//     })
+//     .filter((group) => group.children.length > 0); // Remove empty groups
+// });
 
-      return {
-        ...group,
-        children: filteredChildren,
-      };
-    })
-    .filter((group) => group.children.length > 0); // Remove empty groups
-});
-
-watch(() => route.fullPath, () => {
-  searchTerm.value = '';
-});
+// watch(() => route.fullPath, () => {
+//   searchTerm.value = '';
+// });
 </script>
 
 <template>
   <aside class="sidebar">
     <div class="sidebar__wrapper">
-      <Card padding="0">
+      <!-- <Card padding="0">
         <div class="sidebar__top">
           <Form noValidate>
             <TextField
@@ -59,9 +60,9 @@ watch(() => route.fullPath, () => {
             />
           </Form>
         </div>
-        <!-- Menu List Group -->
         <MenuListGroup :children="nodes" />
-      </Card>
+      </Card> -->
+      <SideBarActionList :groups="groups" />
     </div>
   </aside>
 </template>
@@ -81,10 +82,6 @@ watch(() => route.fullPath, () => {
   width: 100%;
   height: 100%;
   /* background-color: blue; */
-}
-
-.sidebar__top {
-  padding: 12px 12px 0 12px;
 }
 
 @media (min-width: 768px) {
