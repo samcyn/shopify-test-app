@@ -38,8 +38,8 @@ onMounted(() => {
 </script>
 
 <template>
+  <div v-if="isSidebarOpen" class="main_content__overlay" @click="handleOpenSidebar"></div>
   <section class="main_content" :class="{ 'main_content--open': isSidebarOpen }">
-    <div v-if="isSidebarOpen" class="main_content__overlay" @click="handleOpenSidebar"></div>
     <div class="main_content__wrapper">
       <div class="main_content_no_margin">
         <router-view :showSidebarButtons="true" @openSidebar="handleOpenSidebar" @openSidebar2="handleOpenSidebar2" />
@@ -85,7 +85,10 @@ onMounted(() => {
   right: 0;
   width: 100%;
   height: 100%;
+  transition: all 0.33s cubic-bezier(0.42, 0, 0.13, 1.06);
+  transition-delay: 500s;
   background-color: rgba(0, 0, 0, 0.5);
+  margin-left: calc(var(--sidebar-width) * -1);
   z-index: 1000;
 }
 

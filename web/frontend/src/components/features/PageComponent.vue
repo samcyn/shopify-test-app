@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-
-import MenuListGroup from '@/components/shared/MenuListGroup/index.vue';
-import data from '@/router/data.json';
-import type { IRoutes } from '@/router/types';
+import { computed } from 'vue';
 
 import {
   Page,
@@ -20,7 +16,6 @@ import {
   ResourceItem,
   Thumbnail,
   LegacyCardSection,
-  Form, TextField
 } from '@ownego/polaris-vue';
 import { useRoute } from 'vue-router';
 
@@ -84,7 +79,7 @@ const handleOpenModal = () => {
 </script>
 
 <template>
-  <Page fullWidth :title="pageInfo.title" compactTitle :backAction="{ content: 'Products', url: '#' }">
+  <Page fullWidth :title="pageInfo.title" compactTitle :backAction="{ content: 'Products', url: '#', }">
     <Layout>
       <LayoutSection variant="fullWidth">
         <Card roundedAbove="sm">
